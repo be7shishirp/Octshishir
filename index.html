@@ -1,13 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shishir Pandey - Portfolio</title>
-  <link href="index.css" rel="stylesheet">
-  <script defer src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shishir Pandey Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
-<body class="bg-[#0d0d0d] text-white overflow-x-hidden">
-  <div id="root"></div>
+<body>
+    <!-- 3D Animated Background -->
+    <div id="background"></div>
+
+    <!-- Main Heading -->
+    <header class="main-header">
+        <h1 id="rainbow-heading">Shishir Pandey</h1>
+        <h2 class="welcome-text">Welcome to my Website</h2>
+    </header>
+
+    <!-- Social Media Links -->
+    <section class="socials">
+        <div class="social-card" onclick="window.open('https://www.instagram.com/shishirpnde','_blank')">
+            Instagram: @shishirpnde
+        </div>
+        <div class="social-card" onclick="window.open('https://www.shiship.com.np','_blank')">
+            Website: www.shiship.com.np
+        </div>
+        <div class="social-card" onclick="window.open('https://www.tiktok.com/@octshishir','_blank')">
+            TikTok: @octshishir
+        </div>
+    </section>
+
+    <!-- ID Card Preview -->
+    <section id="id-card-preview">
+        <a href="idcard.html" class="id-card-link">View My 3D ID Card</a>
+    </section>
 </body>
 </html>
