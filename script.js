@@ -1,17 +1,13 @@
-// GSAP ScrollTrigger setup
-gsap.registerPlugin(ScrollTrigger);
+// Example animation on scroll or other interactions
+document.addEventListener('DOMContentLoaded', () => {
+    const socials = document.querySelectorAll('.social-card');
 
-// Example animation for sections
-document.querySelectorAll('section').forEach((section, index) => {
-  gsap.from(section, {
-    opacity: 0,
-    y: 50,
-    duration: 1,
-    scrollTrigger: {
-      trigger: section,
-      start: "top 80%",
-      end: "top 20%",
-      toggleActions: "play none none reverse",
-    },
-  });
+    socials.forEach(card => {
+        card.addEventListener('mouseover', () => {
+            card.style.transform = 'scale(1.15) rotateY(10deg)';
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'scale(1) rotateY(0deg)';
+        });
+    });
 });
