@@ -1,0 +1,186 @@
+/* ---------------------------
+  Global Body & Fonts
+--------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: #0d0d0d;
+  color: white;
+  scroll-behavior: smooth;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------------------------
+  Rainbow Gradient Text
+--------------------------- */
+.rainbow-text {
+  background: linear-gradient(90deg, #ff004c, #fffc00, #00ff90, #00d4ff, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 300%;
+  animation: rainbow 5s linear infinite;
+}
+
+@keyframes rainbow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ---------------------------
+  Glow Text
+--------------------------- */
+.glow-text {
+  text-shadow: 0 0 10px #fff, 0 0 20px #ff00ff, 0 0 30px #00ffff;
+}
+
+/* ---------------------------
+  Section Styles
+--------------------------- */
+section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* ---------------------------
+  Buttons
+--------------------------- */
+button, .btn-map {
+  background: linear-gradient(90deg, #ff004c, #00ff90, #00d4ff);
+  color: #0d0d0d;
+  border: none;
+  border-radius: 1rem;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+button:hover, .btn-map:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255,255,255,0.6);
+}
+
+/* ---------------------------
+  Cards (ID, Address, Education, Skills)
+--------------------------- */
+.address-card,
+.edu-card,
+.experience-card,
+.skill-card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s, border-image 0.3s;
+}
+
+.address-card:hover,
+.edu-card:hover,
+.skill-card:hover {
+  transform: translateY(-10px) rotateX(5deg);
+  box-shadow: 0 0 20px rgba(255,255,255,0.4);
+}
+
+.skill-card {
+  border: 2px solid transparent;
+  animation: glowBorder 3s linear infinite;
+  cursor: pointer;
+}
+
+@keyframes glowBorder {
+  0%,100% { border-image: linear-gradient(90deg,#ff004c,#00ff90,#00d4ff) 1; }
+  50% { border-image: linear-gradient(90deg,#00ff90,#ff004c,#ff00ff) 1; }
+}
+
+/* ---------------------------
+  Floating Cards Animation
+--------------------------- */
+@keyframes floatCard {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.edu-card, .experience-card {
+  animation: floatCard 3s ease-in-out infinite;
+}
+
+/* ---------------------------
+  Hero / Home Section
+--------------------------- */
+#home h1 {
+  font-size: 6rem;
+}
+
+#home h2 {
+  font-size: 2rem;
+  color: rgba(255,255,255,0.8);
+}
+
+.social-icon {
+  font-size: 2rem;
+  transition: transform 0.3s, text-shadow 0.3s;
+  cursor: pointer;
+}
+
+.social-icon:hover {
+  transform: scale(1.3);
+  text-shadow: 0 0 10px #fff, 0 0 20px #ff00ff, 0 0 30px #00ffff;
+}
+
+/* ---------------------------
+  Zodiac Wheel
+--------------------------- */
+#zodiac-wheel {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid transparent;
+  border-image: linear-gradient(90deg,#ff004c,#00ff90,#00d4ff) 1;
+  animation: rotateWheel 10s linear infinite;
+}
+
+@keyframes rotateWheel {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ---------------------------
+  Scroll Animations (for GSAP/ScrollTrigger)
+--------------------------- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.fade-in.active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 1s ease-out;
+}
+
+/* ---------------------------
+  Responsive Design
+--------------------------- */
+@media screen and (max-width: 768px) {
+  #home h1 { font-size: 4rem; }
+  #home h2 { font-size: 1.5rem; }
+  .address-card, .edu-card, .skill-card { width: 80%; }
+  }
