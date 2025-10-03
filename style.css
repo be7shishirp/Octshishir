@@ -1,186 +1,100 @@
-/* ---------------------------
-  Global Body & Fonts
---------------------------- */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
-
-body {
-  font-family: 'Orbitron', sans-serif;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  background: #0d0d0d;
-  color: white;
-  scroll-behavior: smooth;
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-h1,h2,h3,h4,h5,h6 {
-  margin: 0;
-  padding: 0;
+/* Body and 3D Background */
+body, html {
+    height: 100%;
+    overflow-x: hidden;
 }
 
-/* ---------------------------
-  Rainbow Gradient Text
---------------------------- */
-.rainbow-text {
-  background: linear-gradient(90deg, #ff004c, #fffc00, #00ff90, #00d4ff, #ff00ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 300% 300%;
-  animation: rainbow 5s linear infinite;
+#background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff0080, #7928ca, #00f2fe, #ff0080);
+    background-size: 400% 400%;
+    animation: gradientAnimation 20s ease infinite;
+    z-index: -1;
 }
 
-@keyframes rainbow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* Rainbow Animation */
+@keyframes gradientAnimation {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
 }
 
-/* ---------------------------
-  Glow Text
---------------------------- */
-.glow-text {
-  text-shadow: 0 0 10px #fff, 0 0 20px #ff00ff, 0 0 30px #00ffff;
+/* Heading Styles */
+.main-header {
+    text-align: center;
+    margin-top: 10vh;
+    color: white;
 }
 
-/* ---------------------------
-  Section Styles
---------------------------- */
-section {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
+#welcome-text {
+    font-size: 2rem;
+    margin-top: 1rem;
 }
 
-/* ---------------------------
-  Buttons
---------------------------- */
-button, .btn-map {
-  background: linear-gradient(90deg, #ff004c, #00ff90, #00d4ff);
-  color: #0d0d0d;
-  border: none;
-  border-radius: 1rem;
-  padding: 0.5rem 1.5rem;
-  cursor: pointer;
-  font-weight: bold;
-  transition: transform 0.3s, box-shadow 0.3s;
+#rainbow-heading {
+    font-size: 4rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbowText 5s linear infinite;
 }
 
-button:hover, .btn-map:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 15px rgba(255,255,255,0.6);
+@keyframes rainbowText {
+    0% {background-position: 0%;}
+    100% {background-position: 100%;}
 }
 
-/* ---------------------------
-  Cards (ID, Address, Education, Skills)
---------------------------- */
-.address-card,
-.edu-card,
-.experience-card,
-.skill-card {
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
-  padding: 1.5rem;
-  border-radius: 1.5rem;
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s, border-image 0.3s;
+/* Social Cards */
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 5vh;
+    flex-wrap: wrap;
 }
 
-.address-card:hover,
-.edu-card:hover,
-.skill-card:hover {
-  transform: translateY(-10px) rotateX(5deg);
-  box-shadow: 0 0 20px rgba(255,255,255,0.4);
+.social-card {
+    background: rgba(255,255,255,0.1);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    color: white;
+    font-weight: bold;
 }
 
-.skill-card {
-  border: 2px solid transparent;
-  animation: glowBorder 3s linear infinite;
-  cursor: pointer;
+.social-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255,255,255,0.5);
 }
 
-@keyframes glowBorder {
-  0%,100% { border-image: linear-gradient(90deg,#ff004c,#00ff90,#00d4ff) 1; }
-  50% { border-image: linear-gradient(90deg,#00ff90,#ff004c,#ff00ff) 1; }
+/* ID Card Preview */
+#id-card-preview {
+    text-align: center;
+    margin-top: 10vh;
 }
 
-/* ---------------------------
-  Floating Cards Animation
---------------------------- */
-@keyframes floatCard {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+.id-card-link {
+    background: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.3s;
 }
 
-.edu-card, .experience-card {
-  animation: floatCard 3s ease-in-out infinite;
+.id-card-link:hover {
+    transform: scale(1.2);
 }
-
-/* ---------------------------
-  Hero / Home Section
---------------------------- */
-#home h1 {
-  font-size: 6rem;
-}
-
-#home h2 {
-  font-size: 2rem;
-  color: rgba(255,255,255,0.8);
-}
-
-.social-icon {
-  font-size: 2rem;
-  transition: transform 0.3s, text-shadow 0.3s;
-  cursor: pointer;
-}
-
-.social-icon:hover {
-  transform: scale(1.3);
-  text-shadow: 0 0 10px #fff, 0 0 20px #ff00ff, 0 0 30px #00ffff;
-}
-
-/* ---------------------------
-  Zodiac Wheel
---------------------------- */
-#zodiac-wheel {
-  width: 20rem;
-  height: 20rem;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 3px solid transparent;
-  border-image: linear-gradient(90deg,#ff004c,#00ff90,#00d4ff) 1;
-  animation: rotateWheel 10s linear infinite;
-}
-
-@keyframes rotateWheel {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* ---------------------------
-  Scroll Animations (for GSAP/ScrollTrigger)
---------------------------- */
-.fade-in {
-  opacity: 0;
-  transform: translateY(50px);
-}
-
-.fade-in.active {
-  opacity: 1;
-  transform: translateY(0);
-  transition: all 1s ease-out;
-}
-
-/* ---------------------------
-  Responsive Design
---------------------------- */
-@media screen and (max-width: 768px) {
-  #home h1 { font-size: 4rem; }
-  #home h2 { font-size: 1.5rem; }
-  .address-card, .edu-card, .skill-card { width: 80%; }
-  }
